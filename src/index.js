@@ -1,5 +1,6 @@
 //const= never going to change. never reassign app
 //JSX is a dialect of Javascript
+import _ from 'lodash'
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
@@ -31,9 +32,11 @@ class App extends Component {
    }
 
   render(){
+    //only runs every 300 ms , debouced version of search
+    const videoSearch = _.debounce((term)=> {this.videoSearch(term)}, 300);
     return (
       <div>
-        <SearchBar onSearchTermChange={term=> this.videoSearch(term)}/>
+        <SearchBar onSearchTermChange={videoSearch}/>
         <VideoDetail video={this.state.selectedVideo}/>
         <VideoList
           onVideoSelect={selectedVideo => this.setState({selectedVideo})}
