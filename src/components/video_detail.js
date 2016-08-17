@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+//this is the iframe main video and its title and its description
 const VideoDetail = ({video}) => {
 
   if (!video){

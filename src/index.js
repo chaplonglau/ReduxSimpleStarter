@@ -22,6 +22,7 @@ class App extends Component {
    this.videoSearch('surfboards');
   }
 
+  //updates the state with the term from searchbar
    videoSearch(term){
      YTSearch({key: API_KEY, term: term}, (videos) => {
        this.setState({

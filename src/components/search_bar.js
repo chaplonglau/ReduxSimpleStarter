@@ -6,6 +6,7 @@ class SearchBar extends Component {
     this.state= { term: ''};
   }
 
+  //every time the input is changed, index's videosearch is called with the updated term
   render() {
     return (
       <div className="search-bar">
